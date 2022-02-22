@@ -1,0 +1,38 @@
+{% extends 'customerBase.html' %}
+{% block content %}
+<div>
+    <div>
+        <h5>Product Details</h5>
+        {% for d in D %}
+        <div>
+            {{d.PRODUCT_NAME}} =>
+            {{d.QUANTITY}} * {{d.UNIT_PRICE}} = {{d.TOTAL_PRICE}}
+        </div>
+        {% endfor %}
+        <br>
+        <div>
+            Total Cost = {{cost}} <br>
+            Seller Bkash No = {{D.0.BKASH}} 
+        </div> <br>
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="address">Delivery Address</label><br>
+                <textarea name="address" id="" cols="30" rows="5" required></textarea><br />
+                <label for="postal">Postal Code:</label><br />
+                <input type="tel" id="input" name="postal" pattern="[0-9]{4}" title="xxxx(Only Number Allowed)"
+                    placeholder="xxxx" required /><br />
+                <label for="bkash">Customer Bkash No:</label><br />
+                <input type="tel" id="input" name="bkash" pattern="[01][0-9]{10}" title="01xxxxxxxxx"
+                    placeholder="01xxxxxxxxx" required /><br />
+                <label for="txnid">Transaction ID: </label><br />
+                <input type="text" id="input" name="txnid" required /><br /><br />
+                <button type="submit" name="cnfrmOrderBtn"> Confirm Order</button>
+            </form>
+            <form method="GET">
+                <button type="submit" name="cancelBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

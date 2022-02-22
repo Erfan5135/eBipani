@@ -1,0 +1,58 @@
+<header>
+
+    <div class="site-header">
+
+        <div class="site-identity">
+            <a href='/eApp/users/customer/'>
+                <img src="/static/img/logo.png" alt="logo">
+            </a>
+            <h1>
+                <a href="/eApp/users/customer/">
+                    eBipani
+                </a>
+            </h1>
+        </div>
+
+        <nav class="site-navigation">
+            <ul class="nav">
+                <li>
+                    <a href="/eApp/users/customer/profile">
+                        {{request.session.email | cut:"@gmail.com" }}
+                    </a>
+                </li>
+                <li>
+                    <a href="/eApp/users/customer/myorders">
+                        My Orders
+                    </a>
+                </li>
+                <li>
+                    <a href="/eApp/users/customer/cart">
+                        <img src="/static/img/cart.png" alt="Cart">
+                    </a>
+                </li>
+                <li>
+                    <a href="/eApp/users/logout">
+                        Log Out
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <form action="/eApp/users/customer/search/" method="get">
+                <div class="search">                
+                    <input type="text" class="search-box" placeholder="search brand, product" name="searchBox">
+                    <button class="search-btn" name="searchBtn">
+                        search
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="header-image-menu">
+
+    </div>
+
+</header>

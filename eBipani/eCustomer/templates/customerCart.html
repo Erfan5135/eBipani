@@ -1,0 +1,38 @@
+{% extends 'customerBase.html' %} {% block content %}
+<div>
+    {% if data|length > 0%}
+    {% if msg|length > 0%}
+    <div>
+        <span onclick="this.parentElement.style.display='none';">&times;</span>
+        {{msg}}
+    </div>
+    {% endif %}
+    {% for D in data %}
+    <div>
+        {% for d in D %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <a href="/eApp/users/customer/products/{{d.PCN}}/{{d.PID}}">{{d.PN}}</a>
+            </div>
+            <label for="quantity">Quantity :</label>
+            <input type="number" name="quantity" value="{{d.TU}}" required minlength="1" maxlength="3" min="1"
+                size="10" />
+            <input type="hidden" name="PID" value="{{d.PID}}" />
+            <button type="submit" name="save">Save</button>
+            <button type="submit" name="deleteBtn">Delete</button>
+        </form>
+        {% endfor%}
+        <br />
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="pid" value="{{D.0.PID}}" />
+            <button type="submit" name="deleteOrderBtn">Delete</button>
+            <button type="submit" name="orderBtn">Order</button>
+        </form>
+    </div>
+    <br />
+    {% endfor %} {% endif %}
+</div>
+{% endblock content %}

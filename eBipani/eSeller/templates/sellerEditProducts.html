@@ -1,0 +1,49 @@
+{% extends 'sellerHome.html' %}
+{% block content %}
+<div>
+    {% if data|length > 0 %}
+        <div style="width: 350px;text-align: center;">
+            <label style="color:rgb(21, 255, 0);font-style:bold;font-size: 28px;">
+                    {{data.msg}}
+            </label><br>
+        </div>
+    {% endif %}
+
+
+    <h3> Edit Your Product </h3></br>
+    <form method="POST" action="editProductFunc">
+    {% csrf_token %}
+        <div>
+            <input type="number" value="{{data.PRODUCT_ID}}" name="id" hidden>
+            <p> Category </p>
+            <input type="text" placeholder="{{data.CATEGORY_NAME}}" name="catagory" value="{{data.CATEGORY_NAME}}" required>
+        </div><br>
+        <div>
+            <p> Sub Category </p>
+            <input type="text" placeholder="{{data.0.SUB_CATEGORY}}" value="{{data.SUB_CATEGORY}}" name="subcatagory"  required>
+        </div><br>
+        <div>
+            <p> Product Name </p>
+            <input type="text" placeholder="{{data.PRODUCT_NAME}}" value="{{data.PRODUCT_NAME}}" name="pName" required>
+        </div><br>
+        <div>
+            <p> Unit Price </p>
+            <input type="number" min="0" step="0.01" placeholder="{{data.UNIT_PRICE}}" value="{{data.UNIT_PRICE}}" name="price" required>
+        </div><br>
+        <div>
+            <p> Units in Stock </p>
+            <input type="number" min="1" placeholder="{{data.UNITS_IN_STOCK}}" value="{{data.UNITS_IN_STOCK}}" name="stock" required>
+        </div><br>
+        <div>
+            <p> Image </p>
+        </div><br>
+        <div>
+            <p> Description </p>
+            <input type="text" placeholder="{{data.DESCRIPTION}}" value="{{data.DESCRIPTION}}" name="description" required>
+        </div><br>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+<header>
+
+    <div class="site-header">
+
+        <div class="site-identity">
+            <a href='/eApp/users/seller/'>
+                <img src="/static/img/logo.png" alt="logo">
+            </a>
+            <h1>
+                <a href="/eApp/users/seller/">
+                    eBipani
+                </a>
+            </h1>
+        </div>
+
+        <nav class="site-navigation">
+            <ul class="nav">
+                <li>
+                    <a href="/eApp/users/seller/profile">
+                        {{request.session.email |cut:"@gmail.com"}}
+                    </a>
+                </li>
+                <li>
+                    <a href="/eApp/users/logout">
+                        Log Out
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+</header>

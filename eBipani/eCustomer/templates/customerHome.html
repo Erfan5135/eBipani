@@ -1,0 +1,33 @@
+{% extends 'customerBase.html' %} {% block content %}
+
+<body class="site-body">
+  {% for D in data %}
+  <div class="product-view">
+    <div class="product-title">
+      <a href="/eApp/users/customer/products/{{D.0.CATEGORY_NAME}}">
+        <h5>{{D.0.CATEGORY_NAME}}</h5>
+      </a>
+      <form action="/eApp/users/customer/products/{{D.0.CATEGORY_NAME}}" method="get">
+        <button class="view-all">view all</button>
+      </form>
+    </div>
+
+    <div class="product-list">
+      {% for d in D %}
+      <div class="product">
+        <a href="/eApp/users/customer/products/{{d.CATEGORY_NAME}}/{{d.PRODUCT_ID}}">
+          <img src="{{d.IMAGE}}" alt="{{d.PRODUCT_NAME}}" />
+        </a>
+        <a href="/eApp/users/customer/products/{{d.CATEGORY_NAME}}/{{d.PRODUCT_ID}}">
+          <p>{{d.PRODUCT_NAME}}</p>
+        </a>
+      </div>
+      <p>&nbsp</p>
+      <!--printing space-->
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</body>
+
+{% endblock content %}

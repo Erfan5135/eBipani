@@ -1,0 +1,66 @@
+{% extends 'customerBase.html' %} {% block content %}
+
+<h1>User Details</h1>
+<div>
+    <form method="post">
+        {% csrf_token %} {% if msg|length > 0 %}
+        <div>
+            <span onclick="this.parentElement.style.display='none';">&times;</span>
+            {{msg}}
+        </div>
+        {% endif %}
+
+        <div>
+            <label for="fname">First name:</label>
+            <input type="text" id="input" name="fname" placeholder="First Name" value="{{fname}}" required /><br />
+        </div>
+
+        <div>
+            <label for="lname">Last name:</label>
+            <input type="text" id="input" name="lname" placeholder="Last Name" value="{{lname}}" required /><br />
+        </div>
+
+        <div>
+            <label for="phone">Mobile:</label>
+            <input type="tel" id="input" name="phone" pattern="[01][0-9]{10}" title="01xxxxxxxxx"
+                placeholder="01xxxxxxxxx" value="{%if phone|length < 11%}0 {%endif%}{{phone}}" required /><br />
+        </div>
+
+        <div>
+            <label for="city"> City:</label>
+            <input type="text" name="city" value="{{city}}" /><br />
+        </div>
+
+        <div>
+            <label for="country"> Country: </label>
+            <input type="text" name="country" value="{{country}}" /><br />
+        </div>
+
+        <div>
+            <label for="postalcode">Postal Code:</label>
+            <input type="tel" id="input" name="postalcode" pattern="[0-9]{4}" title="xxxx(Only Number Allowed)"
+                placeholder="xxxx" value="{{postalcode}}" required /><br />
+        </div>
+
+        <div>
+            <label for="cpass"> Current Password: </label>
+            <input type="password" name="cpass" /><br />
+        </div>
+
+        <div>
+            <label for="npass"> New Password: </label>
+            <input type="password" name="npass" pattern=".{6,}"/><br />
+        </div>
+
+        <div>
+            <label for="rnpass">Re-type password: </label>
+            <input type="password" name="rnpass" pattern=".{6,}"/><br /><br />
+        </div>
+
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

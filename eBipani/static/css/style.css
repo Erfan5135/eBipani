@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto';
+}
+
+a {
+    text-decoration: none;
+}
+
+/**************************
+    header css properties
+
+***************************/
+
+.site-header {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: #f1e0e0;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    min-width: 1024px;
+}
+
+.site-identity {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px 0px 10px;
+    position: absolute;
+    width: 335px;
+}
+
+.site-identity h1 {
+    position: static;
+    width: 186px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+.site-identity img {
+    width: 150px;
+    float: left;
+    padding: 10px 10px 10px 10px;
+}
+
+.site-navigation {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.site-navigation ul, li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: large;
+}
+
+.site-navigation ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.site-navigation li a img {    
+    width: 25px;
+    height: 25px; 
+    padding-top: 5px; 
+    border-radius: 20%;
+    margin-right: 5px;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    max-width: 1024px;
+    min-width: 512px;
+    height: 40px;
+    right: 2%;
+    top: 80px; 
+}
+
+.search-box{
+    width: 85%;
+    height: 40px;
+    padding: 10px 20px;
+    left: 0px;
+    top: 0px;
+    background: #faf8f8;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-size: 15px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.search-btn{
+    width: 15%;
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #383838;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.search-box::placeholder{
+    color: #8f8b8b;
+}
+
+/*****************************
+    header css properties ends
+
+******************************/
+
+/*****************************
+    footer css properties 
+
+******************************/
+
+.site-footer {
+    position: relative;
+    clear: both;
+    bottom:0;
+    left: 0;
+    width:100%;
+    min-width: 1024px;
+    height:225px;   /* Height of the footer */
+    background:rgb(235, 217, 222);
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.links-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: absolute;
+    width: 100%;
+    height: 175px;
+    padding : 0px 25px;
+}
+
+.links-row .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    position: static;
+    width: 25%;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.site-footer .links-row .col h6 {
+    color: rgb(22, 1, 9);
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    letter-spacing: 2px;
+}
+
+.links-row .col ul {
+    text-align: center;
+}
+
+.links-row .col ul li {
+    display: block;
+    line-height: 25px;
+}
+
+.row-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 160px;
+}
+
+.row-2 .payment-methods {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.row-2 .payment-methods p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.row-2 .payment-methods img {
+    height: 50px;
+    width: 100px;
+    border-radius: 10%;
+}
+
+.row-2 .copyright p {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+
+/*****************************
+    footer css properties ends
+
+******************************/
+
+
+/*****************************
+    index css properties 
+
+******************************/
+
+.product-view {
+    min-width: 1024px;
+}
+
+.product-title {
+    margin-top: 10px;
+    background-color: rgb(181, 243, 205);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 2px;
+}
+
+.product-view .product-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-view .product-list .product {
+    padding: 5px;
+    height: 150px;
+    width: 20%;
+    background-color: #f1e0e0;
+}
+
+.product-view .product-list img {
+    height: 120px;
+    width: 90%;
+}
+
+/*****************************
+    index css properties ends
+
+******************************/

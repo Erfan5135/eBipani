@@ -1,0 +1,59 @@
+{% extends 'customerBase.html' %} {% block content %} {% if adata|length > 0 %}
+<h3> Approved Orders </h3>
+{% for D in adata %}
+
+<div>
+  <table border="1">
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+    </tr>
+    {% for d in D %}
+    <tr>
+      <td>{{d.NAME}}</td>
+      <td>{{d.TOTAL_UNIT}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<div>
+  <div>Total Cost: {{D.0.COST}}</div>
+  <div>TXN ID: {{D.0.TXN}}</div>
+  <div>Bkash No: {{D.0.BKASH}}</div>
+  <div>Order Date : {{D.0.OD}}</div>
+  <div>Delivery Date : {{D.0.DD}}</div>
+  <div>Delivery Address : {{D.0.ADDRESS}}</div>
+</div>
+<br />
+
+{% endfor %} {% endif %} {% if data|length > 0 %} 
+<h3> Pending Orders </h3>
+{% for D in data %}
+
+<div>
+  <table border="1">
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+    </tr>
+    {% for d in D %}
+    <tr>
+      <td>{{d.NAME}}</td>
+      <td>{{d.TOTAL_UNIT}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<div>
+  <div>Total Cost: {{D.0.COST}}</div>
+  <div>TXN ID: {{D.0.TXN}}</div>
+  <div>Bkash No: {{D.0.BKASH}}</div>
+  <div>Order Date : {{D.0.OD}}</div>
+  <div>Delivery Date : {{D.0.DD}}</div>
+  <div>Delivery Address : {{D.0.ADDRESS}}</div>
+</div>
+<br />
+
+{% endfor %} {% endif %} {% endblock content %}

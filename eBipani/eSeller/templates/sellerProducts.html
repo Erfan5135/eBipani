@@ -1,0 +1,58 @@
+{% extends 'sellerBase.html' %}
+{% block content %}
+
+<div>
+    {% for d in data %}
+    <div>
+        <table style="padding: 10px 00px 0 100px ;">
+            <tr>
+                <td rowspan="7" style="width: 75px;height: 75px;"><img src="{{d.IMAGE}}" alt="product img"></td>
+                <td></td>
+                <td><h1>{{d.PRODUCT_NAME}}</h1></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p style="color:darkblue">{{d.CATEGORY_NAME}}</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p style="color:darkblue">{{d.SUB_CATEGORY}}</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><h4>{{d.UNIT_PRICE}} BDT</h4></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p>In Stock: {{d.UNITS_IN_STOCK}}</p></td>
+                <td><p>Ordered: {{d.UNITS_ON_ORDER}}</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p>{{d.DESCRIPTION}}</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <form action="sellerEditProducts" method="post" target="_blank">
+                    {% csrf_token %}
+                        <input type="text" value="{{d.PRODUCT_ID}}" hidden name="id">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="" method="GET" target="_blank">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+
+        </table>
+        
+        
+        
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

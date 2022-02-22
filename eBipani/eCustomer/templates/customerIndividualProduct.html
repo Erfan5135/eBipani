@@ -1,0 +1,53 @@
+{% extends 'customerBase.html' %} {% block content %}
+
+<div>
+    {% for d in prod %}
+    <div>
+        <img src="{{d.IMAGE}}" alt="product img" /><br />
+        <li>Product Name : {{d.PRODUCT_NAME}}</li>
+        <br />
+        <li>Unit Price : {{d.UNIT_PRICE}}</li>
+        <br />
+        <li>Units in Stock : {{d.UNITS_IN_STOCK}}</li>
+        <br />
+        <li>Description : {{d.DESCRIPTION}}</li>
+        <br />
+        <form method="GET">
+            <button type="submit" name="add2cart">Add to cart</button>
+        </form>
+    </div>
+    <br />
+    {% endfor %}
+
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <label for="rating"> Rate the product: </label>
+            <input type="number" name="rating" value="{{rating}}" style="width: 35px" min="1" max="5"/>/5<br />
+            <button type="submit" name="ratingbtn" {% if flag == 0 %} disabled {% endif %}>save</button>
+        </form>
+    </div>
+    <br />
+
+    <div>
+        <h5>Add a Review</h5>
+        <form method="post">
+            {% csrf_token %}
+            <textarea name="review" id="" cols="30" rows="10">{{review}}</textarea><br />
+            <button type="submit" name="reviewbtn" {% if flag == 0 %} disabled {% endif %}>save</button>
+        </form>
+    </div>
+    <br />
+
+    <div>
+        <h5>Reviews</h5>
+        <div>
+            {% for r in reviews %}
+            <p>{{r.NAME}} : </p>
+            <p>{{r.REVIEW}}</p><br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content%}

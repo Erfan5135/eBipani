@@ -1,0 +1,37 @@
+{% extends 'sellerHome.html' %}
+{% block content %}
+{% if data|length > 0%}
+{% for D in data %}
+<div>
+    <table border="1">
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+
+        </tr>
+        {% for d in D %}
+        <tr>
+            <td>{{d.NAME}}</td>
+            <td>{{d.TOTAL_UNIT}}</td>
+        </tr>
+        {% endfor %}        
+    </table>
+</div>
+<div>
+    <div>Customer Email: {{D.0.CE}} </div>
+    <div>Order Date : {{D.0.ODT}}</div>
+    <div>Delivery Address : {{D.0.DA}}</div>
+    <div>Postal Code : {{D.0.PC}} </div>
+    <div>Payment Type : {{D.0.PT}}</div>
+    <div>Bkash No: 0{{D.0.BKASH}}</div>
+    <div>TXN : {{D.0.TXN}} </div>
+    <div>Cost : {{D.0.TP}}</div>
+</div> <br>
+<form action="" method="get">
+    <input type="hidden" name="oid" value="{{D.0.OID}}">
+    <button type="submit" name="cancelBtn" disabled> Cancel Order </button>
+    <button type="submit" name="approveBtn"> Approve </button>
+</form> <br>
+{% endfor %}
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'customerBase.html' %}
+{% block content %}
+
+<div>
+    {% if data|length > 0 %}
+        {% for d in data %}
+        <div>
+            <img src="{{d.IMAGE}}" alt="product img"><br>
+            <li> Product Name : {{d.PRODUCT_NAME}}</li><br>
+            <li> Unit Price : {{d.UNIT_PRICE}}</li><br>
+            <li> Units in Stock : {{d.UNITS_IN_STOCK}}</li><br>
+        </div>
+        <form action="/eApp/users/customer/products/{{d.CATEGORY_NAME}}/{{d.PRODUCT_ID}}" method="GET" target="_blank">
+            <button type="submit">view</button>
+        </form>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock content%}
